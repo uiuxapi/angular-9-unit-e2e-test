@@ -18,6 +18,8 @@ describe('VoterComponent', () => {
 
   });
 
+
+  // testing properyt bindings
   it('it should render togtal votes', () => {
     // arrange
     component.othersVote = 20;
@@ -36,7 +38,7 @@ describe('VoterComponent', () => {
 
   });
 
-
+// Testing class bindings
   it('should highlight the upvote button if I have upvoted', () => {
       component.myVote = 1;
       fixture.detectChanges();
