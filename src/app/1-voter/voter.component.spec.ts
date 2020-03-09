@@ -49,5 +49,17 @@ describe('VoterComponent', () => {
       expect(de.classes['highlighted']).toBeTruthy();
 
   });
+
+
+  it('should increase total votes when I click the upvote button', () => {
+  
+    let button =  fixture.debugElement.query(By.css('.glyphicon-menu-up')) ;    // refference to the dom element
+    
+    // triggering event handler on button passing in the eventType & event object/null
+    button.triggerEventHandler('click', null); 
+    
+    expect(component.totalVotes).toBe(1);
+
+  });
   
 });
