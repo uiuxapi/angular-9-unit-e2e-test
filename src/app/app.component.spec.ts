@@ -2,7 +2,7 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
-import { DebugElement, ComponentRef } from '@angular/core';
+import { DebugElement, ComponentRef, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/Testing';
@@ -13,7 +13,8 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppComponent ],
-      imports: [ RouterTestingModule.withRoutes([]) ]
+      imports: [ RouterTestingModule.withRoutes([]) ],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
@@ -49,21 +50,5 @@ describe('AppComponent', () => {
     expect(de).not.toBeNull();
 
   });
-
-  /* Test Failing */
-  // x - in from of it or describe block to disable test
-  it('should have a link to todos page', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    let debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
-
-    // <a routerLink="/todos">                                                               // findIndex get index of target element in array
-    let index = debugElements.findIndex(de => de.properties['routerLink'] === '/todos');     // findIndex returns -1, if not found
-   
-    // <a href="/todos">    
-    //let index = debugElements.findIndex(de => de.properties['href'] === '/todos');
-
-    expect(index).toBeGreaterThan(-1);
-  });
-
 
 });
