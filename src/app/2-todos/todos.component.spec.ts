@@ -6,6 +6,7 @@ import { DebugElement } from '@angular/core';
 import { TodosComponent } from './todos.component';
 import { TodoService } from './todo.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 //NOTE: I've deliberately excluded this suite from running
 // because the test will fail. This is because we have not 
@@ -36,4 +37,20 @@ xdescribe('TodosComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should load todos from the server', () => {
+   
+    // get reference to the service dependency registerd at module level
+    let service = TestBed.get(TodosComponent);
+    spyOn(service, 'getTodos').and.returnValue(Observable.from([ [1, 2, 3] ]));
+
+    expect(component.todos.length).toBe(3);
+  
+    // get reference to the service deppendecy registerd at the TestBed level
+    // get a depencency from a component directly - To Verbose use TestBed.
+    /* fixture.debugElement.injector.get(TodoService); */
+
+
+  });
+
 });
