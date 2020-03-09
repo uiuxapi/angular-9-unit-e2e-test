@@ -2,6 +2,7 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { VoterComponent } from './voter.component';
 import { By } from '@angular/platform-browser';
 
+
 describe('VoterComponent', () => {
   let component: VoterComponent;
   let fixture: ComponentFixture<VoterComponent>   // ComponentFixture wrapper around component
@@ -14,8 +15,6 @@ describe('VoterComponent', () => {
 
     fixture = TestBed.createComponent(VoterComponent);
     component = fixture.componentInstance;
-    // fixture.nativeElement
-    // fixture.debugElement
 
   });
 
