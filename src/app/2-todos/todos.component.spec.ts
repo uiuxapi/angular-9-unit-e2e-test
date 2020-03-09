@@ -31,7 +31,6 @@ xdescribe('TodosComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TodosComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -43,7 +42,8 @@ xdescribe('TodosComponent', () => {
     // get reference to the service dependency registerd at module level
     let service = TestBed.get(TodosComponent);
     spyOn(service, 'getTodos').and.returnValue(Observable.from([ [1, 2, 3] ]));
-
+    fixture.detectChanges();
+    
     expect(component.todos.length).toBe(3);
   
     // get reference to the service deppendecy registerd at the TestBed level
